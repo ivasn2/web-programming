@@ -14,7 +14,9 @@ export const rightContainerTemplate = ({ title, description }) => {
 };
 
 export const futureHereTemplate = (data) => {
-  const rightContainerTpl = data.map((item) => rightContainerTemplate(item));
+  // join нужен т.к. шаблонизатор `` объединяем массив по умолчанию через запятую
+    // и в DOM-дереве получаются лишние элементы
+  const rightContainerTpl = data.map((item) => rightContainerTemplate(item)).join(""); 
 
   const parentTemplate = `
     <div class="future_here__left">
